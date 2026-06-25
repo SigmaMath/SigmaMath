@@ -42,6 +42,7 @@ class mainWin(QMainWindow):
         self.setWindowTitle("SigmaMath")
         self.setWindowIcon(QIcon("icon\sigma.png"))
         self.setMinimumSize(450, 600)
+        
 
 
 if __name__ == "__main__":
