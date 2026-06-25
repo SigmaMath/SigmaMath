@@ -1,0 +1,27 @@
+/* gui/style.qss */
+
+/* Target the main background window */
+QMainWindow {
+    background-color: #1e1e2e;
+}
+
+/* Target all buttons by default */
+QPushButton {
+    font-family: "Segoe UI", Arial;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* Target buttons explicitly tagged with styleClass="number" */
+QPushButton[styleClass="number"] {
+    background-color: #2d2d3d;
+    color: #ffffff;
+}
+
+/* Target buttons explicitly tagged with styleClass="operator" */
+QPushButton[styleClass="operator"] {
+    background-color: #f9e2af;
+    color: #11111b;
+    font-weight: bold;
+}
