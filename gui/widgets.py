@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QPushButton
+from PySide6.QtWidgets import QPushButton, QSizePolicy
 
 """ Imported classes from PySide6
     QPushButton: Button Class
@@ -15,6 +15,8 @@ from PySide6.QtWidgets import QPushButton
 class button(QPushButton):
     def __init__(self, text, type="number"):
         super().__init__(text)
-        self.setFixedHeight(50)
+        # self.setFixedHeight(50)
         self.type = type
         self.setProperty("styleClass", self.type)
+        
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)

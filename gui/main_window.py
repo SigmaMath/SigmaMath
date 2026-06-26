@@ -1,4 +1,3 @@
-import sys
 from PySide6.QtWidgets import (
     QApplication,
     QLabel,
@@ -16,7 +15,6 @@ from PySide6.QtGui import QIcon
 from gui.views.basic import basic
 
 """ Imported Libraries
-    sys: System Library
     PySide6: PySide6 Library
     basic: custom basic view
 """
@@ -76,7 +74,7 @@ class mainWin(QMainWindow):
         self.basic_calculator = basic()
         # adding the basic calculator to the stack
         self.view_stack.addWidget(self.basic_calculator)
-        
+
         # loading the stylesheet
         self.load_stylesheet()
 
@@ -86,7 +84,7 @@ class mainWin(QMainWindow):
 
     def load_stylesheet(self):
         try:
-            with open("gui/style.qss", "r") as f:
+            with open("gui/style.css", "r") as f:
                 style_data = f.read()
                 self.setStyleSheet(style_data)
         except FileNotFoundError:
