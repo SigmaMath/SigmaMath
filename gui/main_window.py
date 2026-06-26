@@ -13,10 +13,12 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Slot, QObject, Signal
 from PySide6.QtGui import QIcon
+from gui.views.basic import basic
 
 """ Imported Libraries
     sys: System Library
     PySide6: PySide6 Library
+    basic: custom basic view
 """
 
 """ Imported Classes from PySide6 
@@ -48,7 +50,7 @@ class mainWin(QMainWindow):
 
         # title and icon
         self.setWindowTitle("SigmaMath")
-        self.setWindowIcon(QIcon("icon\sigma.png"))
+        self.setWindowIcon(QIcon("icon/sigma.png"))
 
         # base size when opened
         self.setMinimumSize(450, 600)
@@ -65,11 +67,15 @@ class mainWin(QMainWindow):
         # creating sidebar
         self.sidebarWidget = QWidget()
         self.sidebar_layout = QVBoxLayout(self.sidebarWidget)
-        
 
         # creating view stack
         self.view_stack = QStackedWidget()
         self.masterLayout.addWidget(self.view_stack, stretch=1)
+
+        # creating the basic calculator
+        self.basic_calculator = basic()
+        # adding the basic calculator to the stack
+        self.view_stack.addWidget(self.basic_calculator) 
 
     """ 
     Reads the external QSS file and applies it globally to the window.
@@ -82,10 +88,3 @@ class mainWin(QMainWindow):
                 self.setStyleSheet(style_data)
         except FileNotFoundError:
             print("Warning: style.qss not found. Running with default system theme.")
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = mainWin()
-    window.show()
-    sys.exit(app.exec())

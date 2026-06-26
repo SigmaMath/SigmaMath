@@ -14,3 +14,37 @@ from gui.widgets import button
 """
 
 
+class basic(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        # creating the vertical stack layout which is bound to the basic class object
+        self.stack = QVBoxLayout(self)
+        self.stack.setContentsMargins(5, 5, 5, 5)  # adding margins to the layout
+
+        # creating the screen
+        self.screen = QLineEdit()
+        self.stack.addWidget(self.screen)  # adding the screen to the layout
+
+        # creating the button grid
+        self.button_grid = QGridLayout()
+        self.stack.addLayout(self.button_grid)  # adding the button grid to the layout
+
+        # Define the visual arrangement of your keypad matrix: (Text, StyleClass)
+        button_matrix = [
+            [("(", "utility"), (")", "utility"), ("Del", "utility"), ("/", "operator")],
+            [("7", "number"), ("8", "number"), ("9", "number"), ("*", "operator")],
+            [("4", "number"), ("5", "number"), ("6", "number"), ("-", "operator")],
+            [("1", "number"), ("2", "number"), ("3", "number"), ("+", "operator")],
+            [("0", "number"), (".", "number"), ("C", "Utility"), ("=", "operator")],
+        ]
+
+        # Loop through rows and columns to spawn instances dynamically
+        for row, element in enumerate(button_matrix):
+            for col, (text, btn_type) in enumerate(element):
+
+                # 1. Instantiate your custom button class from your widgets file
+                btn = button(text, type=btn_type)
+
+                # 2. Add it to your QGridLayout using its specific coordinate indexes
+                self.button_grid.addWidget(btn, row, col)
