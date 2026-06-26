@@ -1,0 +1,50 @@
+name: SigmaMath Pull Request Quality Guard
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  code_validation:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Pull down a copy of your team's code onto the runner
+    - name: Fetch repository code
+      uses: actions/checkout@v4
+
+    # 2. Spin up a clean Python runtime environment
+    - name: Initialize Python 3.11 Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    # 3. Inject pip dependencies needed for testing
+    - name: Install Development Tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install PySide6 flake8 black
+
+    # 4. Enforce team-wide syntax and style formatting checks
+    - name: Check Python Code Formatting (Black)
+      run: |
+        black . --check --line-length 100
+
+    # 5. Scan scripts for unhandled exceptions or broken references
+    - name: Scan Code for Critical Bugs (Flake8)
+      run: |
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+    # 6. Safety check to catch typos or unclosed brackets in your stylesheet
+    - name: Validate UI CSS Stylesheet Integrity
+      run: |
+        python -c "
+        try:
+            with open('gui/style.css', 'r') as f:
+                content = f.read()
+                if content.count('{') != content.count('}'):
+                    print('Error: Mismatch in open/close curly brackets in style.css!'); exit(1)
+                print('style.css blocks verified successfully.')
+        except FileNotFoundError:
+            print('style.css not found yet, skipping check.')
+        "
