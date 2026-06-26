@@ -75,7 +75,10 @@ class mainWin(QMainWindow):
         # creating the basic calculator
         self.basic_calculator = basic()
         # adding the basic calculator to the stack
-        self.view_stack.addWidget(self.basic_calculator) 
+        self.view_stack.addWidget(self.basic_calculator)
+        
+        # loading the stylesheet
+        self.load_stylesheet()
 
     """ 
     Reads the external QSS file and applies it globally to the window.
