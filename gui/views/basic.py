@@ -60,7 +60,7 @@ class basic(QWidget):
             for col, (text, btn_type) in enumerate(element):
 
                 # 1. Instantiate your custom button class from your widgets file
-                btn = button(text, type=btn_type)
+                btn = button(text, btn_type=btn_type)
 
                 # 2. Add it to your QGridLayout using its specific coordinate indexes
                 self.button_grid.addWidget(btn, row, col)

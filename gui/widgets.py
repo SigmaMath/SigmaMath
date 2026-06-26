@@ -7,16 +7,17 @@ from PySide6.QtWidgets import QPushButton, QSizePolicy
 """ Custom Buttons Class
     For better control and knowledge of the buttons
     It inherits from QPushButton
-    type element holds the nature of the button
+    btn_type element holds the nature of the button
     styleClass property added to object for custom styling
 """
 
 
 class button(QPushButton):
-    def __init__(self, text, type="number"):
+    def __init__(self, text, btn_type="number"):
         super().__init__(text)
         # self.setFixedHeight(50)
-        self.type = type
-        self.setProperty("styleClass", self.type)
-        
+        self.btn_type = btn_type
+        self.setProperty("styleClass", self.btn_type)
+
+        # Expanding the size policy so that the button can be resized without issues
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
