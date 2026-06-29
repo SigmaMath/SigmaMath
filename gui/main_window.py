@@ -79,9 +79,7 @@ class mainWin(QMainWindow):
         self.icon = QLabel()
         self.icon.setPixmap(icon_scaled)
         self.title = QLabel("SigmaMath")  # set title
-        self.title.setStyleSheet(
-            "color: #fff; font-size = 12; font-family: 'Segoe UI';"
-        )
+        self.title.setStyleSheet("color: #fff; font-size = 12; font-family: 'Segoe UI';")
 
         titlebar_layout.addWidget(self.icon)
         titlebar_layout.addWidget(self.title)
@@ -89,25 +87,24 @@ class mainWin(QMainWindow):
         titlebar_layout.addSpacerItem(
             QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
         )  # Spacer to push buttons to the right
-        
+
         # creating buttons
         self.btn_minimize = QPushButton("─")
         self.btn_maximize = QPushButton("🗖")
         self.btn_close = QPushButton("✕")
-        
+
         self.btn_minimize.setObjectName("TitleBtn")
         self.btn_maximize.setObjectName("TitleBtn")
         self.btn_close.setObjectName("TitleBtnClose")
-        
+
         # calling buttons functions
         self.btn_minimize.clicked.connect(self.showMinimized)
         self.btn_maximize.clicked.connect(self.toggle_maximize)
         self.btn_close.clicked.connect(self.close)
-        
+
         titlebar_layout.addWidget(self.btn_minimize)
         titlebar_layout.addWidget(self.btn_maximize)
         titlebar_layout.addWidget(self.btn_close)
-        
 
         # creating master layout
         self.masterLayout = QVBoxLayout(self.centralWidget)
@@ -119,7 +116,7 @@ class mainWin(QMainWindow):
         self.sidebar_layout = QVBoxLayout(self.sidebarWidget)
 
         self.masterLayout.addWidget(self.titlebar)
-        
+
         # creating view stack
         self.view_stack = QStackedWidget()
         self.masterLayout.addWidget(self.view_stack, stretch=1)
@@ -143,20 +140,21 @@ class mainWin(QMainWindow):
                 self.setStyleSheet(style_data)
         except FileNotFoundError:
             print("Warning: style.qss not found. Running with default system theme.")
-    
+
     """
     Toggles the maximized state of the window.
     """
+
     def toggle_maximize(self):
         if self.isMaximized():
             self.showNormal()
         else:
             self.showMaximized()
-            
+
     """
     Window dragging Functions
     """
-    
+
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton and self.titlebar.underMouse():
             self.drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()

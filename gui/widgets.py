@@ -27,9 +27,10 @@ from PySide6.QtGui import QPixmap, QIcon
     btn_type element holds the nature of the button
     styleClass property added to object for custom styling
 """
-mpl.rcParams['mathtext.fontset'] = 'stix' # use stix font for math
-mpl.rcParams['font.family'] = 'STIXGeneral' # use stix font for text
- 
+mpl.rcParams["mathtext.fontset"] = "stix"  # use stix font for math
+mpl.rcParams["font.family"] = "STIXGeneral"  # use stix font for text
+
+
 class button(QPushButton):
     def __init__(self, text, btn_type="number"):
         super().__init__()
@@ -54,12 +55,10 @@ class button(QPushButton):
 
     def handleLatex(self, text):
         buf = io.BytesIO()  # create a buffer for image in ram
-        fig, ax = plt.subplots(
-            figsize=(1.5, 1), dpi=200
-        )  # create a figure and axis with high dpi
+        fig, ax = plt.subplots(figsize=(1.5, 1), dpi=200)  # create a figure and axis with high dpi
         fig.patch.set_facecolor("none")  # transparent background
         ax.axis("off")  # hide axis
-        
+
         ax.text(
             0.5,
             0.5,
@@ -72,7 +71,7 @@ class button(QPushButton):
         )  # text properties
 
         plt.savefig(
-            buf, format="png", bbox_inches="tight", pad_inches= 0.0, transparent=True
+            buf, format="png", bbox_inches="tight", pad_inches=0.0, transparent=True
         )  # save figure to buffer
         plt.close(fig)  # close figure
         buf.seek(0)  # seek to the beginning of the buffer
