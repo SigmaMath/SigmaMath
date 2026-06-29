@@ -53,9 +53,11 @@ from gui.views.basic import basic
 class mainWin(QMainWindow):
     def __init__(self):
         super().__init__()
+        
+        self.setWindowIcon(QIcon("icon/sigmaW.png"))
 
         # base size when opened
-        self.setMinimumSize(450, 600)
+        self.setMinimumSize(460, 600)
 
         # creating custom interface using blank canvas (QWidget)
         self.centralWidget = QWidget()
@@ -148,8 +150,10 @@ class mainWin(QMainWindow):
     def toggle_maximize(self):
         if self.isMaximized():
             self.showNormal()
+            self.btn_maximize.setText("🗖")
         else:
             self.showMaximized()
+            self.btn_maximize.setText("🗗")
 
     """
     Window dragging Functions

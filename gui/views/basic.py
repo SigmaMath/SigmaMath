@@ -28,12 +28,21 @@ class basic(QWidget):
         self.stack = QVBoxLayout(self)
         self.stack.setContentsMargins(5, 5, 5, 5)  # adding margins to the layout
 
-        # creating the screen
-        self.screen = QLineEdit()
-        self.screen.setPlaceholderText("0")  # setting the placeholder text
-        self.screen.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
-        self.screen.setMinimumHeight(200)
-        self.stack.addWidget(self.screen, stretch=1)  # adding the screen to the layout
+        # creating the screen for input
+        self.screen_in = QLineEdit()
+        self.screen_in.setPlaceholderText(None)  # setting the placeholder text
+        self.screen_in.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.screen_in.setMinimumHeight(50)
+        self.stack.addWidget(self.screen_in, stretch=1)  # adding the screen_out to the layout
+        self.screen_in.setReadOnly(True)
+        
+        # creating the screen for output
+        self.screen_out = QLineEdit()
+        self.screen_out.setPlaceholderText("0")  # setting the placeholder text
+        self.screen_out.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.screen_out.setMinimumHeight(100)
+        self.stack.addWidget(self.screen_out, stretch=1)  # adding the screen_out to the layout
+        self.screen_out.setReadOnly(True)
 
         # creating the button grid
         self.button_grid = QGridLayout()

@@ -34,7 +34,7 @@ mpl.rcParams["font.family"] = "STIXGeneral"  # use stix font for text
 class button(QPushButton):
     def __init__(self, text, btn_type="number"):
         super().__init__()
-        # self.setFixedHeight(50)
+        self.setMinimumHeight(60)
         self.btn_type = btn_type
         self.setProperty("styleClass", self.btn_type)
 
@@ -55,7 +55,7 @@ class button(QPushButton):
 
     def handleLatex(self, text):
         buf = io.BytesIO()  # create a buffer for image in ram
-        fig, ax = plt.subplots(figsize=(1.5, 1), dpi=200)  # create a figure and axis with high dpi
+        fig, ax = plt.subplots(figsize=(1, 1), dpi=200)  # create a figure and axis with high dpi
         fig.patch.set_facecolor("none")  # transparent background
         ax.axis("off")  # hide axis
 
