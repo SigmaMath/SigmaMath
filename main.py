@@ -19,7 +19,6 @@ import sys
     mainWin: Custom canvas
 """
 
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = mainWin()

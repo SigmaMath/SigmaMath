@@ -1,7 +1,24 @@
-from PySide6.QtWidgets import QPushButton, QSizePolicy
+import io
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from PySide6.QtWidgets import QPushButton, QSizePolicy, QLabel, QVBoxLayout
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QPixmap, QIcon
+
+""" Imported Libraries
+    PySide6: PySide6 Library
+    matplotlib: Matplotlib Library
+    io: IO Library
+"""
 
 """ Imported classes from PySide6
     QPushButton: Button Class
+    QSizePolicy: Size Policy Class
+    QLabel: Label Class
+    QVBoxLayout: Vertical Layout Class
+    Qt: Qt Class
+    QPixmap: Image Class
+    QIcon: Icon Class
 """
 
 """ Custom Buttons Class
@@ -10,14 +27,59 @@ from PySide6.QtWidgets import QPushButton, QSizePolicy
     btn_type element holds the nature of the button
     styleClass property added to object for custom styling
 """
-
+mpl.rcParams['mathtext.fontset'] = 'stix'
+mpl.rcParams['font.family'] = 'STIXGeneral'
 
 class button(QPushButton):
     def __init__(self, text, btn_type="number"):
-        super().__init__(text)
+        super().__init__()
         # self.setFixedHeight(50)
         self.btn_type = btn_type
         self.setProperty("styleClass", self.btn_type)
 
         # Expanding the size policy so that the button can be resized without issues
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        """ text handeling for the button will be based on the wheter the passed
+            text is simple sting or a latex expression"""
+
+        if text.startswith("$") and text.endswith("$"):  # latex expression
+            self.handleLatex(text)
+        else:
+            self.setText(text)
+
+    """ the method for handeling Latex expression
+        it converts strings into vectors
+    """
+
+    def handleLatex(self, text):
+        buf = io.BytesIO()  # create a buffer for image in ram
+        fig, ax = plt.subplots(
+            figsize=(1.5, 1), dpi=200
+        )  # create a figure and axis with high dpi
+        fig.patch.set_facecolor("none")  # transparent background
+        ax.axis("off")  # hide axis
+
+        ax.text(
+            0.5,
+            0.5,
+            text,
+            size=12,
+            color="white",
+            family="serif",
+            style="italic",
+            horizontalalignment="center",
+            verticalalignment="center",
+        )  # text properties
+
+        plt.savefig(
+            buf, format="png", bbox_inches="tight", pad_inches=0.0, transparent=True
+        )  # save figure to buffer
+        plt.close(fig)  # close figure
+        buf.seek(0)  # seek to the beginning of the buffer
+
+        pixmap = QPixmap()  # create a pixmap
+        pixmap.loadFromData(buf.getvalue())  # load image from buffer
+
+        self.setIcon(QIcon(pixmap))
+        self.setIconSize(pixmap.size() / 2)

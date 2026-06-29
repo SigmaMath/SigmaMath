@@ -39,17 +39,23 @@ class basic(QWidget):
         self.button_grid = QGridLayout()
         # adding the button grid to the layout
         self.stack.addLayout(self.button_grid, stretch=3)
-        self.button_grid.setSpacing(3)  # setting the spacing
+        self.button_grid.setSpacing(2)  # setting the spacing
 
         # Define the visual arrangement of your keypad matrix: (Text, StyleClass)
         button_matrix = [
             [
-                ("(", "operator"),
-                (")", "operator"),
-                ("Del", "utility"),
-                ("/", "operator"),
+                ("%", "operator"),
+                (r"$x^2$", "function"),
+                (r"$1/x$", "function"),
+                (r"$\sqrt{x}$", "function"),
             ],
-            [("7", "number"), ("8", "number"), ("9", "number"), ("*", "operator")],
+            [
+                ("(", "utility"),
+                (")", "utility"),
+                ("Del", "utility"),
+                ("÷", "operator"),
+            ],
+            [("7", "number"), ("8", "number"), ("9", "number"), ("×", "operator")],
             [("4", "number"), ("5", "number"), ("6", "number"), ("-", "operator")],
             [("1", "number"), ("2", "number"), ("3", "number"), ("+", "operator")],
             [("0", "number"), (".", "number"), ("C", "utility"), ("=", "operator")],

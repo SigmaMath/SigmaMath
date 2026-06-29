@@ -21,7 +21,7 @@ QLineEdit::placeholder {
 
 /* --- BASE BUTTON STYLE --- */
 QPushButton {
-    font-family: "Segoe UI", Arial;
+    font-family: "Segoe UI", sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 4px;           /* Subtle Windows-style rounding */
@@ -34,6 +34,7 @@ QPushButton {
 QPushButton[styleClass="number"] {
     background-color: #2b2b2b;
     color: #ffffff;
+    font-weight: 200;
 }
 QPushButton[styleClass="number"]:hover { background-color: #323232; }
 QPushButton[styleClass="number"]:pressed { background-color: #242424; }
@@ -43,8 +44,16 @@ QPushButton[styleClass="operator"], QPushButton[styleClass="utility"] {
     background-color: #202020;
     color: #ffffff;
 }
+
+QPushButton[styleClass="operator"]{
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 QPushButton[styleClass="operator"]:hover, QPushButton[styleClass="utility"]:hover { 
     background-color: #2d2d2d; 
+
 }
 
 /* The Equals Sign: Isolated as a smooth, desaturated accent */
