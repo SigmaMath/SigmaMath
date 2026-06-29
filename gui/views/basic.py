@@ -45,9 +45,9 @@ class basic(QWidget):
         button_matrix = [
             [
                 ("%", "operator"),
-                (r"$x^2$", "function"),
-                (r"$1/x$", "function"),
-                (r"$\sqrt{x}$", "function"),
+                (r"$x^2$", "operator"),
+                (r"$1/x$", "operator"),
+                (r"$^{\!2\!}\sqrt{x}$", "operator"),
             ],
             [
                 ("(", "utility"),

@@ -3,6 +3,31 @@ QMainWindow, QWidget {
     background-color: #1a1919; /* Clean slate dark background */
 }
 
+/* --- THE TITLE BAR --- */
+#TitleBar {
+    background-color: #1a1a1a; 
+}
+
+QPushButton#TitleBtn, QPushButton#TitleBtnClose {
+    background-color: transparent; /* Forces background to be transparent */
+    border: none;
+    border-radius: 0px;
+    color: #ffffff;               /* Forces text to be crisp white */
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12px;
+    width: 46px;                  /* Standard Windows hitboxes */
+    height: 32px;
+}
+
+QPushButton#TitleBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Close button turns red on hover */
+QPushButton#TitleBtnClose:hover {
+    background-color: #e81123;
+}
+
 /* --- THE EXPRESSION SCREEN --- */
 QLineEdit {
     background-color: #1a1919;
