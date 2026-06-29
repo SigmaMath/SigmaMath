@@ -19,6 +19,7 @@ from gui.views.basic import basic
 """ Imported Libraries
     PySide6: PySide6 Library
     basic: custom basic view
+    basic: custom basic view
 """
 
 """ Imported Classes from PySide6 
@@ -30,16 +31,21 @@ from gui.views.basic import basic
     QVBoxLayout: Vertical Layout Class
     QHBoxLayout: Horizontal Layout Class
     QWidget: Widget Class
+    QHBoxLayout: Horizontal Layout Class
+    QWidget: Widget Class
     QMainWindow: Main Window Class
+    QStackedWidget: Stacked Widget Class
     QStackedWidget: Stacked Widget Class
     Slot: Slot Class
     QObject: Object Class
     Signal: Signal Class
     QIcon: Icon Class
+    QIcon: Icon Class
 """
 
 """ Main Window Class
     This will be the main Canvas of the program in which every element (Widget) will be placed
+    It inherits from QMainWindow 
     It inherits from QMainWindow 
 """
 

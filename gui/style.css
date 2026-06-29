@@ -89,3 +89,61 @@ QPushButton[text="="] {
 }
 QPushButton[text="="]:hover { background-color: #bfa360; }
 
+
+/* --- THE WINDOW BASE --- */
+QMainWindow, QWidget {
+    background-color: #1a1919; /* Clean slate dark background */
+}
+
+/* --- THE EXPRESSION SCREEN --- */
+QLineEdit {
+    background-color: #1a1919;
+    color: #ffffff;
+    font-family: "Segoe UI", Arial;
+    font-size: 46px;              /* Big, elegant numeric display */
+    font-weight: 600;
+    border: none;
+    padding-right: 24px;          /* Clean breathing room on the right */
+    padding-bottom: 10px;
+}
+
+QLineEdit::placeholder {
+    color: #ffffff;               /* Keeps the zero crisp but clean */
+}
+
+/* --- BASE BUTTON STYLE --- */
+QPushButton {
+    font-family: "Segoe UI", Arial;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;           /* Subtle Windows-style rounding */
+    margin: 1px;
+}
+
+/* --- NEUTRAL MUTED COLOR SCHEME --- */
+
+/* Numbers: Dark matte elements that blend into the background */
+QPushButton[styleClass="number"] {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+QPushButton[styleClass="number"]:hover { background-color: #323232; }
+QPushButton[styleClass="number"]:pressed { background-color: #242424; }
+
+/* Operators & Utilities: Slightly lighter gray for standard functions */
+QPushButton[styleClass="operator"], QPushButton[styleClass="utility"] {
+    background-color: #202020;
+    color: #ffffff;
+}
+QPushButton[styleClass="operator"]:hover, QPushButton[styleClass="utility"]:hover { 
+    background-color: #2d2d2d; 
+}
+
+/* The Equals Sign: Isolated as a smooth, desaturated accent */
+QPushButton[text="="] {
+    background-color: #cbb06d;    /* Matte, desaturated mustard gold */
+    color: #1a1a1a;
+    font-weight: bold;
+}
+QPushButton[text="="]:hover { background-color: #bfa360; }
+
