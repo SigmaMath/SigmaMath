@@ -1,149 +1,83 @@
 /* --- THE WINDOW BASE --- */
-QMainWindow, QWidget {
-    background-color: #1a1919; /* Clean slate dark background */
+QMainWindow,
+QWidget {
+  background-color: #1a1919; /* Clean slate dark background */
 }
 
 /* --- THE TITLE BAR --- */
 #TitleBar {
-    background-color: #1a1a1a; 
+  background-color: #1a1a1a;
 }
 
-QPushButton#TitleBtn, QPushButton#TitleBtnClose {
-    background-color: transparent; /* Forces background to be transparent */
-    border: none;
-    border-radius: 0px;
-    color: #ffffff;               /* Forces text to be crisp white */
-    font-family: "Segoe UI", sans-serif;
-    font-size: 12px;
-    width: 46px;                  /* Standard Windows hitboxes */
-    height: 32px;
+QPushButton#TitleBtn,
+QPushButton#TitleBtnClose {
+  background-color: transparent; /* Forces background to be transparent */
+  border: none;
+  border-radius: 0px;
+  color: #ffffff; /* Forces text to be crisp white */
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  width: 46px; /* Standard Windows hitboxes */
+  height: 32px;
 }
 
 QPushButton#TitleBtn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Close button turns red on hover */
 QPushButton#TitleBtnClose:hover {
-    background-color: #e81123;
-}
-
-/* --- THE EXPRESSION SCREEN --- */
-QLineEdit {
-    background-color: #1a1919;
-    color: #ffffff;
-    font-family: "Segoe UI", Arial;
-    font-size: 46px;              /* Big, elegant numeric display */
-    font-weight: 600;
-    border: none;
-    padding-right: 24px;          /* Clean breathing room on the right */
-    padding-bottom: 10px;
-}
-
-QLineEdit::placeholder {
-    color: #ffffff;               /* Keeps the zero crisp but clean */
+  background-color: #e81123;
 }
 
 /* --- BASE BUTTON STYLE --- */
 QPushButton {
-    font-family: "Segoe UI", sans-serif;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;           /* Subtle Windows-style rounding */
-    margin: 1px;
+  font-family: "Segoe UI", Arial;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px; 
+  margin: 1px;
 }
 
 /* --- NEUTRAL MUTED COLOR SCHEME --- */
 
-/* Numbers: Dark matte elements that blend into the background */
+/* Numbers */
 QPushButton[styleClass="number"] {
-    background-color: #2b2b2b;
-    color: #ffffff;
-    font-weight: 200;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  font-weight: 200;
 }
-QPushButton[styleClass="number"]:hover { background-color: #323232; }
-QPushButton[styleClass="number"]:pressed { background-color: #242424; }
-
-/* Operators & Utilities: Slightly lighter gray for standard functions */
-QPushButton[styleClass="operator"], QPushButton[styleClass="utility"] {
-    background-color: #202020;
-    color: #ffffff;
+QPushButton[styleClass="number"]:hover {
+  background-color: #323232;
+}
+QPushButton[styleClass="number"]:pressed {
+  background-color: #242424;
 }
 
-QPushButton[styleClass="operator"]{
-    font-size: 18px;
-    font-weight: 400;
-    font-family: 'Times New Roman', Times, serif;
+/* Operators & Utilities */
+QPushButton[styleClass="operator"],
+QPushButton[styleClass="utility"] {
+  background-color: #202020;
+  color: #ffffff;
 }
 
-QPushButton[styleClass="operator"]:hover, QPushButton[styleClass="utility"]:hover { 
-    background-color: #2d2d2d; 
-
+QPushButton[styleClass="operator"] {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
 }
 
-/* The Equals Sign: Isolated as a smooth, desaturated accent */
+QPushButton[styleClass="operator"]:hover,
+QPushButton[styleClass="utility"]:hover {
+  background-color: #2d2d2d;
+}
+
+/* The Equals Sign */
 QPushButton[text="="] {
-    background-color: #cbb06d;    /* Matte, desaturated mustard gold */
-    color: #1a1a1a;
-    font-weight: bold;
+  background-color: #cbb06d; 
+  color: #1a1a1a;
+  font-weight: bold;
 }
-QPushButton[text="="]:hover { background-color: #bfa360; }
-
-
-/* --- THE WINDOW BASE --- */
-QMainWindow, QWidget {
-    background-color: #1a1919; /* Clean slate dark background */
+QPushButton[text="="]:hover {
+  background-color: #bfa360;
 }
-
-/* --- THE EXPRESSION SCREEN --- */
-QLineEdit {
-    background-color: #1a1919;
-    color: #ffffff;
-    font-family: "Segoe UI", Arial;
-    font-size: 46px;              /* Big, elegant numeric display */
-    font-weight: 600;
-    border: none;
-    padding-right: 24px;          /* Clean breathing room on the right */
-    padding-bottom: 10px;
-}
-
-QLineEdit::placeholder {
-    color: #ffffff;               /* Keeps the zero crisp but clean */
-}
-
-/* --- BASE BUTTON STYLE --- */
-QPushButton {
-    font-family: "Segoe UI", Arial;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;           /* Subtle Windows-style rounding */
-    margin: 1px;
-}
-
-/* --- NEUTRAL MUTED COLOR SCHEME --- */
-
-/* Numbers: Dark matte elements that blend into the background */
-QPushButton[styleClass="number"] {
-    background-color: #2b2b2b;
-    color: #ffffff;
-}
-QPushButton[styleClass="number"]:hover { background-color: #323232; }
-QPushButton[styleClass="number"]:pressed { background-color: #242424; }
-
-/* Operators & Utilities: Slightly lighter gray for standard functions */
-QPushButton[styleClass="operator"], QPushButton[styleClass="utility"] {
-    background-color: #202020;
-    color: #ffffff;
-}
-QPushButton[styleClass="operator"]:hover, QPushButton[styleClass="utility"]:hover { 
-    background-color: #2d2d2d; 
-}
-
-/* The Equals Sign: Isolated as a smooth, desaturated accent */
-QPushButton[text="="] {
-    background-color: #cbb06d;    /* Matte, desaturated mustard gold */
-    color: #1a1a1a;
-    font-weight: bold;
-}
-QPushButton[text="="]:hover { background-color: #bfa360; }
-

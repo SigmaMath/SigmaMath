@@ -53,7 +53,7 @@ from gui.views.basic import basic
 class mainWin(QMainWindow):
     def __init__(self):
         super().__init__()
-        
+         
         self.setWindowIcon(QIcon("icon/sigmaW.png"))
 
         # base size when opened
@@ -101,7 +101,7 @@ class mainWin(QMainWindow):
 
         # calling buttons functions
         self.btn_minimize.clicked.connect(self.showMinimized)
-        self.btn_maximize.clicked.connect(self.toggle_maximize)
+        self.btn_maximize.clicked.connect(self.toggleMaximize)
         self.btn_close.clicked.connect(self.close)
 
         titlebar_layout.addWidget(self.btn_minimize)
@@ -129,13 +129,13 @@ class mainWin(QMainWindow):
         self.view_stack.addWidget(self.basic_calculator)
 
         # loading the stylesheet
-        self.load_stylesheet()
+        self.loadStylesheet()
 
     """ 
     Reads the external QSS file and applies it globally to the window.
     """
 
-    def load_stylesheet(self):
+    def loadStylesheet(self):
         try:
             with open("gui/style.css", "r") as f:
                 style_data = f.read()
@@ -147,7 +147,7 @@ class mainWin(QMainWindow):
     Toggles the maximized state of the window.
     """
 
-    def toggle_maximize(self):
+    def toggleMaximize(self):
         if self.isMaximized():
             self.showNormal()
             self.btn_maximize.setText("🗖")
